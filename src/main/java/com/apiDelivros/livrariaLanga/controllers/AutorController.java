@@ -1,7 +1,6 @@
 package com.apiDelivros.livrariaLanga.controllers;
 
 import java.net.URI;
-import java.net.http.HttpResponse;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -129,7 +128,7 @@ public ResponseEntity<Object> salvarAutor(@RequestBody @Valid AutorDTO autorDTO)
     public ResponseEntity<List<AutorDTO>> pesquisar(
        @RequestParam(value = "nome", required = false) String nome,
        @RequestParam(value = "nacionalidade", required = false)  String nacionalidade){
-        List<Autor> resultado = autorService.pesquisa(nome, nacionalidade);
+        List<Autor> resultado = autorService.pesquisarByExample(nome, nacionalidade);
         List<AutorDTO> lista = resultado.stream().map(autor-> new AutorDTO(autor.getId(), autor.getNome(), autor.getNacionalidade(), autor.getDataNascimento())).collect(Collectors.toList());
 
         return ResponseEntity.ok(lista);
@@ -139,7 +138,7 @@ public ResponseEntity<Object> salvarAutor(@RequestBody @Valid AutorDTO autorDTO)
 
     @PutMapping("{id}")
     public ResponseEntity<Object> atualizar(
-       @PathVariable("id") String id, @RequestBody AutorDTO autorDTO){
+       @PathVariable("id") String id, @RequestBody @Valid AutorDTO autorDTO){
         try{
             var idAutor = UUID.fromString(id);
         Optional<Autor> auOptional = autorService.obterAutorPeloId(idAutor);

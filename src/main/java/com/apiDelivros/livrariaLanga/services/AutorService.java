@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 
 import com.apiDelivros.livrariaLanga.exceptions.OperacaoNaoPermitidaException;
@@ -52,6 +55,16 @@ public class AutorService {
         }
     
         return autorRepository.findAll(); // Caso nenhum filtro seja aplicado, retorna todos
+    }
+
+
+    public List<Autor> pesquisarByExample(String nome, String nacionalidade){
+        var autor = new Autor();
+        autor.setNome(nome);
+        autor.setNacionalidade(nacionalidade);
+        ExampleMatcher matcher = ExampleMatcher.matching().withIgnoreNullValues().withIgnoreCase().withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
+        Example<Autor> autorExample = Example.of(autor,matcher);
+        return autorRepository.findAll(autorExample);
     }
 
 
