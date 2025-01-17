@@ -8,6 +8,7 @@ class LivrariaLangaApplicationTests {
 
 	@Test
 	void contextLoads() {
+		System.out.println("Testou........");
 	}
 
 }

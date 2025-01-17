@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.apiDelivros.livrariaLanga.dtos.AutorDTO;
-import com.apiDelivros.livrariaLanga.dtos.ErroResposta;
+import com.apiDelivros.livrariaLanga.controllers.dtos.AutorDTO;
+import com.apiDelivros.livrariaLanga.controllers.dtos.ErroResposta;
 import com.apiDelivros.livrariaLanga.exceptions.OperacaoNaoPermitidaException;
 import com.apiDelivros.livrariaLanga.exceptions.RegistroDuplicadoException;
 import com.apiDelivros.livrariaLanga.models.Autor;

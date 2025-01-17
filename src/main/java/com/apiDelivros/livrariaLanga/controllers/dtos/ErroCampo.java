@@ -1,4 +1,4 @@
-package com.apiDelivros.livrariaLanga.dtos;
+package com.apiDelivros.livrariaLanga.controllers.dtos;
 
 public record ErroCampo(String campo, String erro) {
 }

@@ -1,4 +1,4 @@
-package com.apiDelivros.livrariaLanga.dtos;
+package com.apiDelivros.livrariaLanga.controllers.dtos;
 
 import java.util.List;
 

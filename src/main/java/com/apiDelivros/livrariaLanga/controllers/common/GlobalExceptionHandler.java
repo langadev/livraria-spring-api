@@ -1,4 +1,4 @@
-package com.apiDelivros.livrariaLanga.common;
+package com.apiDelivros.livrariaLanga.controllers.common;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.apiDelivros.livrariaLanga.dtos.ErroCampo;
-import com.apiDelivros.livrariaLanga.dtos.ErroResposta;
+import com.apiDelivros.livrariaLanga.controllers.dtos.ErroCampo;
+import com.apiDelivros.livrariaLanga.controllers.dtos.ErroResposta;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
